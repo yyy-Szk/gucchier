@@ -7,6 +7,8 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- <%= javascript_pack_tag 'hello_react', 'data-turbolinks-track': 'reload' %> -->
   </head>
 
   <body>
@@ -28,6 +30,10 @@
     <p class="alert"><%= alert %></p>
 
     <%= yield %>
+
+    <%= react_component("hello_react", name: 'React') %>
+
+    <%= react_component("count") %>
 
   </body>
 </html>
