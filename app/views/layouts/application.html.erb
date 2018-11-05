@@ -8,13 +8,13 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <!-- <%= javascript_pack_tag 'hello_react', 'data-turbolinks-track': 'reload' %> -->
   </head>
 
   <body>
 
     <header>
        <nav>
+         <%= link_to "top page", root_path %>
          <% if user_signed_in? %>
            <strong><%= link_to current_user.username, pages_show_path %></strong>
            <%= link_to 'プロフィール変更', edit_user_registration_path %>
