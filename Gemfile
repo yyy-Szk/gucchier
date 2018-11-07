@@ -41,6 +41,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
 gem 'webpacker'
 gem 'react-rails'
+gem 'jquery-rails'
+gem 'bootstrap-sass'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

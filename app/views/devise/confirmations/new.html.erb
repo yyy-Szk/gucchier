@@ -1,16 +1,30 @@
-<h2>Resend confirmation instructions</h2>
+<div class="container text-center text-white"> <!-- 確認メールの再送信 -->
 
-<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+  <div class="row" style="margin: 30px 0 80px;">
+    <div class="col-md-12">
+      <h2 style="font-size: 50px;">確認メールの再送信</h2>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Resend confirmation instructions" %>
-  </div>
-<% end %>
+  <div class="row">
+    <div class="col-md-12">
 
-<%= render "devise/shared/links" %>
+      <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+        <%= devise_error_messages! %>
+
+        <div class="field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email",class: "text-black", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+        </div>
+
+        <div class="actions" style="margin-bottom: 35px;">
+          <%= f.submit "再送信", class: "text-black", style: "font-size: 20px" %>
+        </div>
+
+      <% end %>
+
+      <%= render "devise/shared/links" %>
+
+    </div>
+  </div>
+</div>

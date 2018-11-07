@@ -1,4 +1,20 @@
-<h1>こんにちは、<%= current_user.username %>さん</h1>
-<p>ユーザー用ページです。</p>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <%= link_to "top page", root_path %>
+  <% if user_signed_in? %>
+    <strong><%= link_to current_user.username, pages_show_path %></strong>
+    <%= link_to 'プロフィール変更', edit_user_registration_path %>
+    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+  <% else %>
+    <%= link_to 'サインアップ', new_user_registration_path %>
+    <%= link_to 'ログイン', new_user_session_path %>
+  <% end %>
+</nav>
 
-<% console %>
+<h1 class="text-white">ユーザーの詳細ページ。あるいは説明のページ</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <%= link_to "timeline", timelines_path, class: "btn btn-big btn-primary btn-lg", style: "background-color: #004c7c" %>
+    </div>
+  </div>
+</div>

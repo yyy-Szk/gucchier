@@ -1,4 +1,39 @@
-<h1>ようこそ</h1>
-<p>トップページです。</p>
+<div class="top-hero-wrapper text-white">
 
-<%= link_to "timeline", timelines_path %>
+<!-- サイトタイトル -->
+  <div class="container text-center" style="margin-top: 120px;">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="text-white" style="font-size: 110px;">Gucchier</h1>
+        <p class="text-white" style="font-size: 16px">〜 愚痴を吐き出すためだけに作られたアプリ 〜</p>
+      </div>
+    </div>
+  </div>
+
+<!-- サイトの説明、使用方法 -->
+  <div class="container text-center" style="margin-top: 250px;">
+    <div class="row">
+      <div class="col-md-12">
+        <p class="copies">今日あった<span class="strong-copies">嫌な出来事</span>、誰かに聞いてもらいたくないですか？</p>
+        <p class="copies">人知れず、<span class="strong-copies">愚痴り</span>たくないですか？</p>
+        <p class="copies">Gucchierには、あなたと<span class="strong-copies">同じ人</span>が集まっています。</p>
+        <p class="copies">心行くまで、<span class="strong-copies">感情を共有</span>してください。そして、<span class="strong-copies">ストレスを発散</span>してください。</p>
+      </div>
+    </div>
+  </div>
+
+<!-- ログイン、サインアップボタン -->
+  <div class="container text-center" style="margin-top: 160px;margin-bottom: 120px;">
+    <div class="row">
+      <div class="col-md-12">
+        <%= link_to "新規登録はこちら", new_user_registration_path, class: "btn btn-big btn-primary btn-lg active", style: "background-color: #004c7c" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <%= link_to "いますぐログイン", new_user_session_path, class: "btn btn-big btn-primary btn-lg active", style: "background-color: #004c7c" %>
+      </div>
+    </div>
+  </div>
+
+</div>

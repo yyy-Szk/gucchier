@@ -1,6 +1,49 @@
-<h1>タイムラインが表示されて、スレッド一覧を見ることができます</h1>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <%= link_to "top page", root_path %>
+  <% if user_signed_in? %>
+    <strong><%= link_to current_user.username, pages_show_path %></strong>
+    <%= link_to 'プロフィール変更', edit_user_registration_path %>
+    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+  <% else %>
+    <%= link_to 'サインアップ', new_user_registration_path %>
+    <%= link_to 'ログイン', new_user_session_path %>
+  <% end %>
+</nav>
 
 
-<%= link_to "show page", timeline_path(id: 1) %>
+<div class="container">
+  <div class="row text-center">
+    <h1 class="text-white">タイムライン表示場所</h1>
+    <% @rooms.each do |room| %>
 
-<br><br><br><br>
+      <div class="col-md-12">
+        <%= link_to room.title, timeline_path(id: room.id), class: "btn btn-big btn-primary btn-lg", style: "background-color: #004c7c" %>
+      </div>
+
+    <% end %>
+  </div>
+</div>
+
+<div class="container" style="margin-top: 60px;">
+  <div class="sousin text-center" style="border: 3px solid #ffffff;background-color: gray;padding: 10px 0 10px;">
+    <h2>スレッドを立てる<h2>
+
+    <%= form_for @room, url: room_new_path do |f| %>
+
+      <div class="field">
+        <%= f.label "題名", class: "text-white" %>
+        <%= f.text_field :title %>
+      </div>
+
+      <div class="field">
+        <%= f.label "内容", class: "text-white" %>
+        <%= f.text_field :content %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+
+    <% end %>
+  </div>
+</div>
