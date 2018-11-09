@@ -1,0 +1,47 @@
+<%= render 'pages/header' %>
+
+<div style="font-size: 40px" class="mrg-btm-s text-white text-center"><strong>スレッド一覧</strong></div>
+
+<div class="container text-center" style="margin: 60px auto 100px;">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="sousin text-center" style="border: 3px solid #ffffff;background-color: gray;padding: 10px 0 10px;width: 600px;margin: 0 auto;">
+        <h2>スレッドを立てる<h2>
+
+        <%= form_for @room do |f| %>
+
+          <div class="field">
+            <%= f.label "題名", class: "text-white" %>
+            <%= f.text_field :title %>
+          </div>
+
+          <div class="field">
+            <%= f.label "内容", class: "text-white" %>
+            <%= f.text_field :content %>
+          </div>
+
+          <div class="field">
+            <%= f.hidden_field :user_id, value: current_user.id %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit %>
+          </div>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container text-center text-white mrg-btm-s">
+  <div class="row">
+
+    <% @rooms.reverse_each do |room| %>
+      <div class="col-md-12">
+        <%= link_to room.title, room_path(id: room.id), class: "btn btn-big btn-primary btn-lg", style: "background-color: #004c7c" %>
+      </div>
+
+    <% end %>
+  </div>
+</div>

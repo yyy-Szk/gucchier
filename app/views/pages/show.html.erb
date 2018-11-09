@@ -1,20 +1,14 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-  <%= link_to "top page", root_path %>
-  <% if user_signed_in? %>
-    <strong><%= link_to current_user.username, pages_show_path %></strong>
-    <%= link_to 'プロフィール変更', edit_user_registration_path %>
-    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-  <% else %>
-    <%= link_to 'サインアップ', new_user_registration_path %>
-    <%= link_to 'ログイン', new_user_session_path %>
-  <% end %>
-</nav>
+<%= render 'header' %>
 
-<h1 class="text-white">ユーザーの詳細ページ。あるいは説明のページ</h1>
-<div class="container">
-  <div class="row">
+<div class="container text-center text-white">
+  <div class="row mrg-top-s">
     <div class="col-md-12">
-      <%= link_to "timeline", timelines_path, class: "btn btn-big btn-primary btn-lg", style: "background-color: #004c7c" %>
+      <p class="copies"><span class="strong-copies">Gucchier</span>へようこそ。</p>
+      <p class="copies">使い方はいたってシンプル。</p>
+      <p class="copies">①今日あった出来事を<span class="strong-copies">愚痴る</span>ためのスレッドを立てる。</p>
+      <p class="copies">②そこにひたすら<span class="strong-copies">悪口</span>を書き込む。コメントを待って共感を得ても良いだろう。</p>
+      <p class="copies">ただ、<span class="strong-copies">それだけ</span>。</p>
+      <div class="mrg-btm-s"><%= link_to "タイムラインを覗く", rooms_path, class: "btn btn-big btn-primary btn-lg", style: "background-color: #004c7c" %></div>
     </div>
   </div>
 </div>
