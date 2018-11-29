@@ -4,39 +4,41 @@
 </div>
 
 <div class="container" style="border: 3px solid #ffffff;background-color: gray;padding: 10px 0 10px;width: 800px;margin: 0 auto 50px;border-radius: 5px">
-  <div class="sousin text-center">
+  <!-- <div class="text-center">
     <h2 class="text-white">コメントをする<h2>
 
-    <%= form_for @comment, url: comments_new_path do |f| %>
+    <%#= form_for @comment, url: comments_new_path do |f| %>
       <div class="field">
-        <%= f.label "内容", class: "text-white" %>
-        <%= f.text_field :content %>
+        <%#= f.label "内容", class: "text-white" %>
+        <%#= f.text_field :content %>
       </div>
 
       <div class="field">
-        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%#= f.hidden_field :user_id, value: current_user.id %>
       </div>
 
       <div class="field">
-        <%= f.hidden_field :room_id, value: @comments.first.room_id %>
+        <%#= f.hidden_field :room_id, value: @comments.first.room_id %>
       </div>
 
       <div class="actions">
-        <%= f.submit %>
+        <%#= f.submit %>
       </div>
-    <% end %>
+    <%# end %>
   </div>
 
   <div style="border-top: 3px solid #ffffff; margin-top: 50px;padding-bottom: 30px">
     <div class="mrg-top-s text-white">
 
-      <% @comments.each do |comment| %>
+      <%# @comments.each do |comment| %>
         <div>
-          <p class="text-white" style="margin: 20px 0;padding-left: 20px;font-size: 20px"><%= comment.user.username %>：<%= comment.created_at %></h1>
-          <p style="padding-left: 30px"><%= comment.content %></p>
+          <p class="text-white" style="margin: 20px 0;padding-left: 20px;font-size: 20px"><%#= comment.user.username %>：<%#= comment.created_at %></h1>
+          <p style="padding-left: 30px"><%#= comment.content %></p>
         </div>
-      <% end %>
+      <%# end %>
 
     </div>
-  </div>
+  </div> -->
+  <%= react_component('UsersComment') %>
+
 </div>
