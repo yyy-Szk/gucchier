@@ -2,9 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import axios from 'axios'
-
-// import ThreadList from '../components/ThreadList'
-// import MakeThread from '../components/MakeThread'
+import CommentList from './CommentList'
+import NewComment from './NewComment'
 
 class UsersComment extends React.Component {
   constructor(props) {
@@ -16,35 +15,13 @@ class UsersComment extends React.Component {
   }
 
   render() {
-    console.log(this.state.comments)
     return(
       <div>
-        <div className='text-center'>
-          <h2 className="text-white">コメントをする</h2>
-          <form onSubmit={e => this.commentSubmit(e)}>
-            <div className="field">
-              <input type='text' value={this.state.content} onChange={e => this.handleContentChange(e.target.value)}/>
-            </div>
-            <input type="submit" value="送信" />
-          </form>
-        </div>
-
-        <div style={{borderTop: '3px solid #ffffff', margin: 50, paddingBottom: 30}}>
-          <div className="mrg-top-s text-white">
-
-            { this.state.comments.map((comment) =>
-              <div key={comment.id}>
-                <p className="text-white" style={{margin: '20px 0', paddingLeft: 20, fontSize: 26}}>No. {comment.user_id}さん　｜　{comment.created_at}</p>
-                <p style={{paddingLeft: 30, fontSize: 20}}>{comment.content}</p>
-              </div>
-            )}
-
-          </div>
-        </div>
+        <NewComment submit={e => this.commentSubmit(e)} contentChange={e => this.handleContentChange(e.target.value)} content={this.state.content} />
+        <CommentList comments={this.state.comments} />
       </div>
     );
   }
-
 
 
    componentDidMount() {
