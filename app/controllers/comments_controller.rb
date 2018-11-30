@@ -3,8 +3,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
-    @comment.uesr_id = current_user.id
-    ¥s
+    @comment.user_id = current_user.id
     if @comment.save
     #   redirect_to room_url(id: @comment.room_id)
     # else

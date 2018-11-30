@@ -16,13 +16,14 @@ class UsersComment extends React.Component {
   }
 
   render() {
+    console.log(this.state.comments)
     return(
       <div>
         <div className='text-center'>
           <h2 className="text-white">コメントをする</h2>
           <form onSubmit={e => this.commentSubmit(e)}>
             <div className="field">
-              <input type='text' onClick={e => this.handleContentChange(e.target.value)}/>
+              <input type='text' value={this.state.content} onChange={e => this.handleContentChange(e.target.value)}/>
             </div>
             <input type="submit" value="送信" />
           </form>
@@ -47,8 +48,12 @@ class UsersComment extends React.Component {
 
 
    componentDidMount() {
-    axios.get('/api/v1/comments')
-    .then ( (response) => {
+    axios.get('/api/v1/comments', {
+      params: {
+        id: this.props.room_id
+      }
+    })
+    .then ( response => {
       this.setState({
         comments: response.data
       })
@@ -62,20 +67,21 @@ class UsersComment extends React.Component {
   commentSubmit(e) {
     e.preventDefault();
 
-    axios.post('/comments/new', {comment: {room_id: this.state.first.data.room_id, content: this.state.content}})
-      .then(response => {
-        axios.get('/api/v1/comments')
-        .then ( (response) => {
+    axios.post('/comments/new', {comment: {room_id: this.props.room_id, content: this.state.content}})
+      .then( response => {
+        axios.get('/api/v1/comments', {params: {id: this.props.room_id}})
+        .then ( response => {
           this.setState({
             content: '',
-            timeline: response.data
+            comments: response.data
           })
         })
       })
       .catch(error => {
-      console.log('error!!!');
-      });
-    }
+        console.log('error!!!');
+      }
+    );
+  }
 }
 
 export default UsersComment

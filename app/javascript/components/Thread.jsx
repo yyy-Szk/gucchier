@@ -42,8 +42,8 @@ class Thread extends React.Component {
 
 
   componentDidMount() {
-    axios.get('/api/v1/tweets')
-    .then ( (response) => {
+    axios.get('/api/v1/rooms')
+    .then ( response => {
       this.setState({
         timeline: response.data
       })
@@ -62,9 +62,9 @@ class Thread extends React.Component {
     e.preventDefault();
 
     axios.post('/rooms', {room: {title: this.state.title, content: this.state.content}})
-      .then(response => {
-        axios.get('/api/v1/tweets')
-        .then ( (response) => {
+      .then( response => {
+        axios.get('/api/v1/rooms')
+        .then ( response => {
           this.setState({
             timeline: response.data,
             title: '',
@@ -74,8 +74,9 @@ class Thread extends React.Component {
       })
       .catch(error => {
       console.log('error!!!');
-      });
-    }
+      }
+    );
+  }
 }
 
 export default Thread
