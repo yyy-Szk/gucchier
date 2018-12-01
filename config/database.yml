@@ -62,10 +62,10 @@ production:
   # database: gucchier_production
   # username: gucchier
   # password: <%= ENV['GUCCHIER_DATABASE_PASSWORD'] %>
-  # adapter: postgresql
-  # encoding: unicode
-  # pool: 5
-  url: <%= ENV['DATABASE_URL'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  # url: <%= ENV['DATABASE_URL'] %>
 
     # adapter: pg
     # database: db/production.pg
