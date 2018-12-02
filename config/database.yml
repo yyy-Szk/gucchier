@@ -62,7 +62,7 @@ production:
   # database: gucchier_production
   # username: gucchier
   # password: <%= ENV['GUCCHIER_DATABASE_PASSWORD'] %>
-  adapter: postgresql
+  # adapter: postgresql
   # encoding: unicode
   # pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
