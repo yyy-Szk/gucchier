@@ -2,9 +2,9 @@
 
 <div class="container text-center text-white"> <!--アカウント登録フォーム -->
 
-  <div class="row" style="margin: 30px 0 80px;">
+  <div class="row subtitle-margin">
     <div class="col-md-12">
-      <h2 style="font-size: 50px;">サインアップ</h2>
+      <h2>サインアップ</h2>
     </div>
   </div>
 
@@ -32,8 +32,8 @@
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "text-black" %>
         </div>
 
-        <div class="actions" style="margin-bottom: 35px;">
-          <%= f.submit "登録", class: "text-black", style: "font-size: 20px" %>
+        <div class="actions">
+          <%= f.submit "登録", class: "text-black devise-submit" %>
         </div>
       <% end %>
 

@@ -1,12 +1,12 @@
 <div class="container text-center text-white"> <!--　パスワード再設定フォーム -->
 
-  <div class="row" style="margin: 30px 0 80px;">
+  <div class="row subtitle-margin">
     <div class="col-md-12">
-      <h2 style="font-size: 50px;">アカウント情報変更</h2>
+      <h2>アカウント情報変更</h2>
     </div>
   </div>
 
-  <div class="row">
+  <div class="row subtitle-margin">
     <div class="col-md-12">
 
       <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
@@ -26,8 +26,8 @@
           <%= f.password_field :password_confirmation, autocomplete: "off", class: "text-black" %>
         </div>
 
-        <div class="actions" style="margin-bottom: 35px;">
-          <%= f.submit "変更", class: "text-black", style: "font-size: 20px" %>
+        <div class="actions">
+          <%= f.submit "変更", class: "text-black devise-submit" %>
         </div>
 
       <% end %>
