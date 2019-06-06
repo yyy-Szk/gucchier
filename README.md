@@ -1,24 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+試しに動かしてみたい、という方は以下のIDでログインしてみてください
 
-Things you may want to cover:
+email：saisaityotyottyo@gmail.com
+password：12345678
 
-* Ruby version
+# 基本的な使い方
 
-* System dependencies
+よくある掲示板サービスと同じように、タイトルと内容を入力してスレッドを作成します。
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+そこへ自由に書き込みをしてください。
